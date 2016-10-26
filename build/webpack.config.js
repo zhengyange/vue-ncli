@@ -4,29 +4,25 @@ var webpack = require('webpack');
 var HtmlwebpackPlugin = require('html-webpack-plugin');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
-
+var config = require('./config.js');
 var projectRoot = path.resolve(__dirname, '../');
-var APP_PATH = path.resolve(process.cwd());
-var BUILD_PATH = path.resolve(APP_PATH, './dist/');
-
-var cdnPath = 'http://localhost/dist';
+var BUILD_PATH = path.resolve(projectRoot, 'dist');
 
 var metadata = {
-  host: cdnPath
+  host: config.dev.cdnSrc,
 };
 
 module.exports = {
-  // devtool: '#cheap-module-eval-source-map',
-  devtool: '#cheap-module-source-map',
+  devtool: '#cheap-module-eval-source-map',
   entry: {
-    main: './src/main.js',
+    [config.entryFileName]: './src/main.js',
     vendor: ['vue', 'vuex', 'vue-router']
   },
 
   //输出的文件名 合并以后的js会命名为bundle.js
   output: {
     path: BUILD_PATH,
-    publicPath: cdnPath,
+    publicPath: config.dev.cdnSrc + config.buildDirName,
     filename: '/static/js/[name].js',
     sourceMapFilename: '[file].map',
     chunkFilename: '/static/js/chunk/[name].js'

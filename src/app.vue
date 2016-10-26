@@ -5,6 +5,9 @@
 			return {
 				message: 'Hello World!'
 			}
+		},
+		methods: {
+			
 		}
 	}
 </script>

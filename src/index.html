@@ -18,13 +18,25 @@
     <meta name="x5-fullscreen" content="true">
     <meta name="x5-page-mode" content="app">
     <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,minimal-ui">
-    <link rel="stylesheet" type="text/css" href="<%= metadata.host %>/static/css/main.css?v=<%= new Date().getTime()%>">
+    <link rel="stylesheet" type="text/css" href="<%= metadata.host %>/dist/static/css/main.css?v=<%= new Date().getTime()%>">
   </head>
   <body>
 
   	<div id="app"></div>
 
-  <script type="text/javascript" src="<%= metadata.host %>/static/js/vendor.js?v=<%= new Date().getTime()%>"></script>
-  <script type="text/javascript" src="<%= metadata.host %>/static/js/main.js?v=<%= new Date().getTime()%>"></script>
+  <script type="text/javascript" src="<%= metadata.host %>/dist/static/js/vendor.js?v=<%= new Date().getTime()%>"></script>
+  <script type="text/javascript" src="<%= metadata.host %>/dist/static/js/main.js?v=<%= new Date().getTime()%>"></script>
+  <% if(!PRODUCTION){ %>
+  <script type="text/javascript" src="/node_modules/socket.io-client/socket.io.js"></script>
+  <script type="text/javascript">
+    window.onload = function () {
+      var socket = io.connect('http://localhost:8080');
+      socket.on('reload', function () {
+        window.location.reload();
+      });
+      
+    }
+  </script>
+  <% } %>
   </body>
 </html>

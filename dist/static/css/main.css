@@ -3,11 +3,12 @@
   height: 100%;
 }
 *{margin: 0; padding: 0;}
+body{
+	font-size: 14px;
+}
 h2 {
-  color: green;
+  color: red;
 }
 body h2 {
   font-size: 30px;
 }
-
-/*# sourceMappingURL=main.css.map*/
