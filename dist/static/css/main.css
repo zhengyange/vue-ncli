@@ -1,0 +1,13 @@
+
+.page {
+  height: 100%;
+}
+*{margin: 0; padding: 0;}
+h2 {
+  color: green;
+}
+body h2 {
+  font-size: 30px;
+}
+
+/*# sourceMappingURL=main.css.map*/

@@ -1,4 +1,5 @@
 <script type="text/javascript">
+	import './assets/scss/common.scss';
 	export default {
 		data(){
 			return {
@@ -13,7 +14,6 @@
 	</div>
 </template>
 <style lang="sass">
-	@import './assets/scss/common.scss';
 	.page{
 		height: 100%;
 	}
