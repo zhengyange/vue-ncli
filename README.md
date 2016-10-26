@@ -96,6 +96,9 @@ pw.stdout.pipe(process.stdout);
 git clone git@github.com:twolun/vue-ncli.git 
 cd vue-ncli  
 npm install  
+  
+npm start  
+npm run build
 
 ```
 
